@@ -34,11 +34,11 @@ class compression:
                         
                         compress_or_not_compress1=0
 
-                        Predict_Combiton=10
-                        Predict_Combiton_Max=100
+                        Predict_Combiton=1000
+                        Predict_Combiton_Max=10000
                         
-                        Predict_Number=10
-                        Predict_Number2=10
+                        Predict_Number=1000
+                        Predict_Number2=10000
                         Last_bits=""
                         Last_bits_Save=""
                         File_stop=1
@@ -311,6 +311,8 @@ class compression:
                                             Number_N16=INIT[block+5:block+6]
 
                                             Number_N17=INIT[block:block+8]
+                                            Number_N18=INIT[block:block+4]
+ 
  
                                             
                                          
@@ -548,29 +550,18 @@ class compression:
                                                     Compress_times_Long=len(Compress_times_Str)
                                                    
                                                     X_12=str(X_N)
-                                                    if  Ti==1:
-                                                            #print(Block_101_4_1_binary)
-                                                            
-
-                                                            #print(X_12[1:2])
-
-                                                            Number_N4=Number_N4+X_12[0:2]
-                                                            Ti=0
+                                               
                                                             #print("1"+Compress_times_Str)
                                                             #print(X2)
-                                                            block=block+long
-                                                            Number_Predict_Save=1 
+         
                                                        
-                                                    elif X_N>=Predict_Number and X_N<=Predict_Number+9 and X_12!="0" and Ti==0:
+                                                    if X_N>=Predict_Number and X_N<=Predict_Number+999 and X_12[0:1]!="0":
                                                             #print(Block_101_4_1_binary)
                                                             
 
                                                             #print(X_12[1:2])
 
-                                                            Number_N4=Number_N4+X_12[1:2]
-                                                            Ti=1
-                                                            #print("1"+Compress_times_Str)
-                                                            #print(X2)
+                                                            Number_N4=Number_N4+X_12[1:4]
                                                             block=block+long
                                                             Number_Predict_Save=1
                                                            
@@ -582,10 +573,10 @@ class compression:
                                                             #print(Block_101_4_1_binary
 
                                                          
-                                                            Number_N4=Number_N4+Number_N1
+                                                            Number_N4=Number_N4+Number_N18
                                                             J=J+1
                                                             #print(Block_10T4+"1")
-                                                            block=block+1
+                                                            block=block+4
                                            
                                                     Predict_Number=Predict_Number+1#
                                                     if Predict_Number==Predict_Combiton_Max:
