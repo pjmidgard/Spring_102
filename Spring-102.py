@@ -34,10 +34,10 @@ class compression:
                         
                         compress_or_not_compress1=0
 
-                        Predict_Combiton=1000
-                        Predict_Combiton_Max=10000
+                        Predict_Combiton=10000
+                        Predict_Combiton_Max=100000
                         
-                        Predict_Number=1000
+                        Predict_Number=10000
                         Predict_Number2=10000
                         Last_bits=""
                         Last_bits_Save=""
@@ -555,7 +555,7 @@ class compression:
                                                     #print(X_N)
          
                                                        
-                                                    if X_12[0:2]=="10" and X_12[3:4]!="0"  and X_N>=Predict_Number and   X_N<=Predict_Number+99:
+                                                    if  X_12[3:4]!="0"  and X_N>=Predict_Number and   X_N<=Predict_Number+99:
                                                             
 
                                                             
