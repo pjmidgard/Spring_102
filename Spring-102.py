@@ -34,11 +34,11 @@ class compression:
                         
                         compress_or_not_compress1=0
 
-                        Predict_Combiton=10000000
-                        Predict_Combiton_Max=100000000
+                        Predict_Combiton=1000000
+                        Predict_Combiton_Max=10000000
                         
-                        Predict_Number=10000000
-                        Predict_Number2=10000000
+                        Predict_Number=1000000
+                        Predict_Number2=1000000
                         Last_bits=""
                         Last_bits_Save=""
                         File_stop=1
@@ -547,18 +547,21 @@ class compression:
                                                                  
                                             if Block_101!=1:
                                                      
-                                                        Compress_times_Str=str(Compress_times)
-
-Compress_times_Long=len(Compress_times_Str)
+                                                   Compress_times_Str=str(Compress_times)
+                                                   Compress_times_Long=len(Compress_times_Str)
                                            
-        
-                                                                                                         
-                                              if Number_N18[0:1]=="1" and Number_N18[5:6]!="0"  and X_14<=Predict_Number and X_14<=Predict_Number+9999:
+                                                   X_12=str(X_N)
+                                                  
+                                               
+                                                            #print("1"+Compress_times_Str)
+                                                   X_14=int(Number_N18[1:])
+                                                     
+                                                   if Number_N18[0:1]=="0" and Number_N18[7:8]!="0"  and X_14<=Predict_Number and X_14<=Predict_Number+9:
                                                             
 
                                                             
 
-                                                            Number_N4=Number_N4+X_12[5:8]
+                                                            Number_N4=Number_N4+Number_N18[7:8]
                                                             #print(Predict_Number)
                                                             #print(X_N)
                                                             #print(X_12[4:8])
@@ -567,9 +570,9 @@ Compress_times_Long=len(Compress_times_Str)
                                                            
                                                            
                                                    
-                                                   
+                                                                                                    
                                                  
-                                                    else:
+                                                   else:
                                                             #print(Block_101_4_1_binary
 
                                                          
@@ -579,8 +582,8 @@ Compress_times_Long=len(Compress_times_Str)
                                                             #print(Block_10T4+"1")
                                                             block=block+4
                                            
-                                                    Predict_Number=Predict_Number+1#
-                                                    if Predict_Number==Predict_Combiton_Max:
+                                                   Predict_Number=Predict_Number+1#
+                                                   if Predict_Number==Predict_Combiton_Max:
                                                             Predict_Number=Predict_Combiton
                                     if Block_101==1:
                                         Block_101=2
