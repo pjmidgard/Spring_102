@@ -45,6 +45,7 @@ class compression:
                         Compress_times=0
                         J=0
                         Compress_times_Str=""
+                        Ti=0
                         
                         
 
@@ -547,14 +548,27 @@ class compression:
                                                     Compress_times_Long=len(Compress_times_Str)
                                                    
                                                     X_12=str(X_N)
+                                                    if  Ti==1:
+                                                            #print(Block_101_4_1_binary)
+                                                            
+
+                                                            #print(X_12[1:2])
+
+                                                            Number_N4=Number_N4+X_12[0:2]
+                                                            Ti=0
+                                                            #print("1"+Compress_times_Str)
+                                                            #print(X2)
+                                                            block=block+long
+                                                            Number_Predict_Save=1 
                                                        
-                                                    if X_N>=Predict_Number and X_N<=Predict_Number+9 and X_12!="0":
+                                                    elif X_N>=Predict_Number and X_N<=Predict_Number+9 and X_12!="0" and Ti==0:
                                                             #print(Block_101_4_1_binary)
                                                             
 
                                                             #print(X_12[1:2])
 
                                                             Number_N4=Number_N4+X_12[1:2]
+                                                            Ti=1
                                                             #print("1"+Compress_times_Str)
                                                             #print(X2)
                                                             block=block+long
