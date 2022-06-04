@@ -574,6 +574,7 @@ class compression:
 
                                                          
                                                             Number_N4=Number_N4+Number_N18
+                                                            #print(Number_N18)
                                                             J=J+1
                                                             #print(Block_10T4+"1")
                                                             block=block+4
