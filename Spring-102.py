@@ -555,13 +555,13 @@ class compression:
                                                             #print(X2)
          
                                                        
-                                                    if X_N>=Predict_Number and X_N<=Predict_Number+999 and X_12[0:1]!="0":
+                                                    if X_N>=Predict_Number and X_N<=Predict_Number+999 and X_12[0:2]=="10":
                                                             #print(Block_101_4_1_binary)
                                                             
 
-                                                            #print(X_12[1:2])
+                                                            
 
-                                                            Number_N4=Number_N4+X_12[1:4]
+                                                            Number_N4=Number_N4+"1"+X_12[2:4]
                                                             block=block+long
                                                             Number_Predict_Save=1
                                                            
