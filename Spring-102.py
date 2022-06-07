@@ -43,7 +43,7 @@ class compression:
                                                 
                                 Deep=Deep+1
                                 Deep2=Deep+2
-                                Deep3=Deep*2
+                                Deep3=8
                                 print(Deep-1)
                                 long1=0
 
@@ -332,11 +332,11 @@ class compression:
                                             The_biggerest_number_long_Save=len(The_biggerest_number_long)
                                             Equal_info_between_of_the_cirlce_of_the_file_23=bin(long1)[2:]
                                             #print(Equal_info_between_of_the_cirlce_of_the_file_23)
-                                            hr=The_biggerest_number_long_Save
+                                            hr=5
                                             
                                         	
                                             lenf=len(Equal_info_between_of_the_cirlce_of_the_file_23)
-                                            if lenf>The_biggerest_number_long_Save:
+                                            if lenf>5:
                                                     raise SystemExit
                                             	
 
