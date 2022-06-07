@@ -296,7 +296,8 @@ class compression:
                                                             if T1==0:
                                                                     Number_of_the_file=Number_of_the_file//N
                                                             elif T1!=0:
-                                                                    Number_of_the_file=Number_The_Bigest_Save-long1
+                                                                    Number_of_the_file= Number_of_the_file_Save-long1
+                                                                    
                                                                     F=-1
                                                                     block=-1
                                                                     Divided1=int(Divided)
