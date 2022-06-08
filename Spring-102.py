@@ -271,40 +271,50 @@ class compression:
                                                     dot_insert=""
                                                     
 
-                                                    if count==5:
+                                            if count==5:
                                                             dot_file3=dot_file3+"00000"
                                             elif dot_number>29:
-                                                    count2=count2+1
-                                                    if count>=5:
-                                                            dot_file=dot_file+dot_file3+dot_file1+dot_insert
+                                                count2=count2+1
+                                                   
 
-                                                    elif count2==31 or dot_insert2=="00000":
+                                                if count2==31 or dot_insert2=="00000":
                                                             dot_file3=dot_file3+"00001"
-                                                            count2=0
+                                                elif count>5:
+                                                            dot_file=dot_file+dot_file3+dot_file1+dot_insert2                    
+                                     
+                                                elif count==5:
+                                                            dot_file=dot_file+dot_file3+dot_file1+dot_insert 
+                                                else:
+                                                            dot_file=dot_file
+                                                                 
+                                                
 
-                                                    else:
+                                            else:
                                                             dot_file=dot_file+dot_file2+dot_insert
                                                                         
  
-                                                    if dot_insert=="00000":
+                                            if dot_insert=="00000":
                                                             dot_file3=dot_file3+"00001"                                                           
-                                                    dot_file1=""
-                                                    dot_file2=""
-                                                    dot_file3=""
-                                                    dot_insert2=""
-                                                    dot_insert=""
-                                                    count=0
+                                            dot_file1=""
+                                            dot_file2=""
+                                            dot_file3=""
+                                            dot_insert2=""
+                                            dot_insert=""
+                                                   
+                                            count=0
                                                     
                                             block=block+8
 
-                                    if count>=5:
-                                        dot_file=dot_file+dot_file3+dot_file1+dot_insert
+                                  
 
                                     
-                                    elif count2==31 or dot_insert2=="00000":
+                                    if count2==31 or dot_insert2=="00000":
                                                             dot_file3=dot_file3+"00001"
-                                                            count2=0
-
+                                    elif count>5:
+                                        dot_file=dot_file+dot_file3+dot_file1+dot_insert2                       
+                                     
+                                    elif count==5:
+                                        dot_file=dot_file+dot_file3+dot_file1+dot_insert 
                                     else:
                                             dot_file=dot_file+dot_file2+dot_insert
                                     if dot_insert=="00000":
