@@ -272,7 +272,7 @@ class compression:
                                                     
 
                                                     if count==5:
-                                                            dot_file3=dot_file3+"00000000"
+                                                            dot_file3=dot_file3+"00000"
                                             elif dot_number>29:
                                                     count2=count2+1
                                                     if count>=5:
