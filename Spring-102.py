@@ -23,29 +23,8 @@ class compression:
                         raise SystemExit
                 if namez=="c" or namez=="e":        
                     if namez=="c":
+                        Deep3=8
 
-                        Deep = str(input("Please, enter Deep? "))
-
-                        x = Deep.isnumeric()
-                        if x==False:
-                                print("Sorry this not whole number")
-                                raise SystemExit
-                        
-                        if x==True:
-                                Deep=int(Deep)
-                                Deep6=65535-1
-
-                                if Deep>Deep6:
-                                        Deep=Deep6
-
-                                if Deep<1:
-                                        Deep=2
-                                                
-                                Deep=Deep+1
-                                Deep2=Deep+2
-                                Deep3=8
-                                print(Deep-1)
-                                long1=0
 
                         i=1
 
@@ -104,7 +83,6 @@ class compression:
                     Times_6=""
 
                     Translate_info_Decimal=""
-                    Save_number=""
 
                     D=0
 
@@ -245,131 +223,104 @@ class compression:
                                     
                                     Equal_info_between_of_the_cirlce_of_the_file_17=""
                  
-                                    if   Circle_times2==0 and SpinS==0:
-                                    	Equal_info_between_of_the_cirlce_of_the_file="1"+Equal_info_between_of_the_cirlce_of_the_file
-                                    	SpinS=1
-                                    lenf6=len(Equal_info_between_of_the_cirlce_of_the_file)
-                                    if Circle_times2>=(2**48)-3:
+                                    
+
+                                    if Circle_times2>=(2**8)-1:
                                             compress_or_not_compress=2
                                             
-                                    Number_of_the_file = int(Equal_info_between_of_the_cirlce_of_the_file, 2)
-
-                                    Number_of_the_file_Save=Number_of_the_file 
                                     
-                                    bit=""
+                                    
+                                    dot_read=Equal_info_between_of_the_cirlce_of_the_file
+                                    dot_read_long=len(dot_read)
 
-                                    F=0
-
-                                    Number_Start=""
-                                    Number_The_Bigest=""
-
-
-                                    while F!=Deep:
-                                            Number_Start=Number_Start+"2"
-                                            F=F+1
-                                    F=0       
-                                    while F!=Deep:
-                                            Number_The_Bigest=Number_The_Bigest+"9"
-                                            F=F+1
-
-                                    Number_The_Bigest_Save=int(Number_The_Bigest)
-                                    F=0
                                     block=0
-                                    long=len(Number_Start)
-                                    
-                                    
-                                    long1=0
-                                    while  block<long:
-                                                    Divided=Number_Start[block:block+1]
-                                                    
-                                                    if len(Divided)!=0:
-                                                            N=int(Divided)
-                                                            
-                                                            
-                                                            if N==0 or N==1:
-                                                                   N=11
-                                                        
-                                                            #print(N)
-                                                
-                                                                    
-                                                            T1=Number_of_the_file%N
-                                                            if T1==0:
-                                                                    Number_of_the_file=Number_of_the_file//N
-                                                            elif T1!=0:
-                                                                    Number_of_the_file= Number_of_the_file_Save-long1
-                                                                    
-                                                                    F=-1
-                                                                    block=-1
-                                                                    Divided1=int(Divided)
-                                                                    Divided1=Divided1+1
-                                                                    Number_Start=str(Divided1)
-                                                                    long=len(Number_Start)
-                                                                    #print(Number_Start)
-                                                                    long1=long1+1
-                                                                   
-                                                            
-                                                  
-                                                                   
-                                                    
-                                                    F=F+1
-                                                    block=block+1
-                                                    
+                                    dot=0
+                                    dot_file=""
+                                    dot_file1=""
+                                    dot_file2=""
+                                    dot_file3=""
+                                    count=0
+                                    count2=0
 
-                                                    
-                                                    
-                                    
-                                                
+                                    while block<dot_read_long:
+                                            dot_insert=dot_read[block:block+8]
+                                            dot_insert2=dot_read[block:block+5]
+                                            dot_number=int(dot_insert, 2)
                                             
-                                    
-                                          
-                                    
-                                    if Number_of_the_file<=0:
-                                                        compress_or_not_compress=2
-                                    if compress_or_not_compress==1:
+                                           
                                             
-                                            The_biggerest_number_long=bin(Number_The_Bigest_Save)[2:]
+                                            if dot_number<30 and dot_insert2!="00000":
+                                                    dot_number1=dot_number+2
+                                                    dot_save=bin(dot_number1)[2:]
+                                                    
+                                                    lenf=len(dot_save)
 
-                                            The_biggerest_number_long_Save=len(The_biggerest_number_long)
-                                            Equal_info_between_of_the_cirlce_of_the_file_23=bin(long1)[2:]
-                                            #print(Equal_info_between_of_the_cirlce_of_the_file_23)
-                                            hr=5
-                                            
-                                        	
-                                            lenf=len(Equal_info_between_of_the_cirlce_of_the_file_23)
-                                            if lenf>5:
-                                                    raise SystemExit
-                                            	
-
-                                            if compress_or_not_compress==1:
-                                                    
-                                                    add_bits4=""
-                                                    count_bits=hr-lenf%hr
+                                                    add_bits8=""
+                                                    count_bits=5-lenf%5
                                                     z=0
                                                     if count_bits!=0:
-                                                        if count_bits!=hr:
+                                                        if count_bits!=5:
                                                                 while z<count_bits:
-                                                                        add_bits4="0"+add_bits4
+                                                                        add_bits8="0"+add_bits8
                                                                         z=z+1
+                                                    count=count+1
+                                                
+                                                    dot_file1=dot_file1+add_bits8+dot_save
+                                                    dot_file2=dot_file2+add_bits8+dot_save
+                                                    count2=0
 
-                                            Save_number=Save_number+add_bits4+Equal_info_between_of_the_cirlce_of_the_file_23
-                                    if compress_or_not_compress==1:    
-                                    
-                                            Equal_info_between_of_the_cirlce_of_the_file_17=bin(Number_of_the_file)[2:]
+                                                    if count==5:
+                                                            dot_file3=dot_file3+"00000"
+                                            elif dot_number>29:
+                                                    count2=count2+1
+                                                    if count>=5:
+                                                            dot_file=dot_file+dot_file3+dot_file1+dot_insert
+
+                                                    if count2==31 or dot_insert2=="00000":
+                                                            dot_file3=dot_file3+"00001"
+                                                            count2=0
+
+                                                    else:
+                                                            dot_file=dot_file+dot_file2+dot_insert
+                                                            
+                                                    dot_file1=""
+                                                    dot_file2=""
+                                                    dot_file3=""
+                                                    count=0
+                                                    
+                                            block=block+8
+
+                                    if count>=5:
+                                        dot_file=dot_file+dot_file3+dot_file1+dot_insert
+
+                                    if count2==31 or dot_insert2=="00000":
+                                                            dot_file3=dot_file3+"00001"
+                                                            count2=0
+
+                                    else:
+                                            dot_file=dot_file+dot_file2+dot_insert
+                                                            
+                                    dot_file1=""
+                                    dot_file2=""
+                                    dot_file3=""
+                                    count=0
+                                    if compress_or_not_compress==1:
+                                    	
+                                    	    Equal_info_between_of_the_cirlce_of_the_file_17=dot_file
                                    
-                                    
+                                  
                                             #print(len(Equal_info_between_of_the_cirlce_of_the_file_17))
                               
                                     
                                     lenfS=len(Equal_info_between_of_the_cirlce_of_the_file_17)
                                     #print(lenfS)
-                                    if lenfS==lenf6:
+                                    if Circle_times2==0:
                                             Deep3=lenfS
-
-                                    if compress_or_not_compress==2 and Circle_times2==0:
-                                                    Equal_info_between_of_the_cirlce_of_the_file=Equal_info_between_of_the_cirlce_of_the_file[1:]
                                     
-                                   
+                                
+                                            
                                     Circle_times2=Circle_times2+1
+                                   
                           
                                     Equal_info_between_of_the_cirlce_of_the_file_2=Equal_info_between_of_the_cirlce_of_the_file_17
 
@@ -385,54 +336,22 @@ class compression:
                                         	Circle_times3=Circle_times2-1
 
 
-                                    
-                                    
-                                    if   lenfS<=Deep3 or compress_or_not_compress==2:
-                                            
-                                            All_Save=len(Save_number)
-                                            Equal_info_between_of_the_cirlce_of_the_file_17=Equal_info_between_of_the_cirlce_of_the_file_17+Save_number
-                                            
-                                    	   
-                                            ALL_SAVE=bin(All_Save)[2:]
-                                            lenf=len(ALL_SAVE)
-                                            if lenf>32:
-                                                    raise SystemExit
-
-                                            add_bits118=""
-                                            count_bits=32-lenf%32
-                                            z=0
-                                            if count_bits!=0:
-                                                if count_bits!=32:
-                                                        while z<count_bits:
-                                                         	add_bits118="0"+add_bits118
-                                                         	z=z+1
-                                                
                                     if   lenfS<=Deep3 or compress_or_not_compress==2:
                                     	   
-                                            Equal_info_between_of_the_cirlce_of_the_file0=bin(Deep)[2:]
-                                            lenf=len(Equal_info_between_of_the_cirlce_of_the_file0)
 
-                                            add_bits8=""
-                                            count_bits=16-lenf%16
+
+                                            Equal_info_between_of_the_cirlce_of_the_file1=bin(Circle_times3)[2:]
+                                            lenf=len(Equal_info_between_of_the_cirlce_of_the_file1)
+
+                                            add_bits9=""
+                                            count_bits=8-lenf%8
                                             z=0
                                             if count_bits!=0:
-                                                if count_bits!=16:
+                                                if count_bits!=8:
                                                         while z<count_bits:
-                                                         	add_bits8="0"+add_bits8
-                                                         	z=z+1
-                                    if   lenfS<=Deep3 or compress_or_not_compress==2:
-                                    	   
-                                            Equal_info_between_of_the_cirlce_of_the_file_29=bin(Circle_times3)[2:]
-                                            lenf=len(Equal_info_between_of_the_cirlce_of_the_file_29)
-
-                                            add_bits7=""
-                                            count_bits=48-lenf%48
-                                            z=0
-                                            if count_bits!=0:
-                                                if count_bits!=48:
-                                                        while z<count_bits:
-                                                         	add_bits7="0"+add_bits7
-                                                         	z=z+1         		
+                                                         	add_bits9="0"+add_bits9
+                                                         	z=z+1     
+                                            		
 
                                     if   lenfS<=Deep3 or compress_or_not_compress==2:
 
@@ -449,25 +368,11 @@ class compression:
                                                                         add_bits="0"+add_bits
                                                                         z=z+1
 
-                                    if   lenfS<=Deep3 or compress_or_not_compress==2:
-                                    	   
-
-
-                                            Equal_info_between_of_the_cirlce_of_the_file1=bin(count_bits2)[2:]
-                                            lenf=len(Equal_info_between_of_the_cirlce_of_the_file1)
-
-                                            add_bits9=""
-                                            count_bits=8-lenf%8
-                                            z=0
-                                            if count_bits!=0:
-                                                if count_bits!=8:
-                                                        while z<count_bits:
-                                                         	add_bits9="0"+add_bits9
-                                                         	z=z+1       
+                                   
 
                                     if   lenfS<=Deep3 or compress_or_not_compress==2:
                                             lenf=len(Equal_info_between_of_the_cirlce_of_the_file_17)                                           
-                                            Equal_info_between_of_the_cirlce_of_the_file_17=add_bits118+ALL_SAVE+add_bits4+Equal_info_between_of_the_cirlce_of_the_file_23+add_bits9+Equal_info_between_of_the_cirlce_of_the_file1+add_bits8+Equal_info_between_of_the_cirlce_of_the_file0+add_bits7+Equal_info_between_of_the_cirlce_of_the_file_29+add_bits+Equal_info_between_of_the_cirlce_of_the_file_17
+                                            Equal_info_between_of_the_cirlce_of_the_file_17=add_bits+Equal_info_between_of_the_cirlce_of_the_file_17
 
                                     if   lenfS<=Deep3 or compress_or_not_compress==2:
                                                 
