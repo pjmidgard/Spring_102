@@ -268,6 +268,8 @@ class compression:
                                                     dot_file1=dot_file1+add_bits8+dot_save
                                                     dot_file2=dot_file2+add_bits8+dot_save
                                                     count2=0
+                                                    dot_insert=""
+                                                    
 
                                                     if count==5:
                                                             dot_file3=dot_file3+"00000000"
@@ -276,16 +278,21 @@ class compression:
                                                     if count>=5:
                                                             dot_file=dot_file+dot_file3+dot_file1+dot_insert
 
-                                                    elif count2==31 or dot_insert2=="00000000":
-                                                            dot_file3=dot_file3+"00001000"
+                                                    elif count2==31 or dot_insert2=="00000":
+                                                            dot_file3=dot_file3+"00001"
                                                             count2=0
 
                                                     else:
                                                             dot_file=dot_file+dot_file2+dot_insert
-                                                            
+                                                                        
+ 
+                                                    if dot_insert=="00000":
+                                                            dot_file3=dot_file3+"00001"                                                           
                                                     dot_file1=""
                                                     dot_file2=""
                                                     dot_file3=""
+                                                    dot_insert2=""
+                                                    dot_insert=""
                                                     count=0
                                                     
                                             block=block+8
@@ -294,16 +301,19 @@ class compression:
                                         dot_file=dot_file+dot_file3+dot_file1+dot_insert
 
                                     
-                                    elif count2==31 or dot_insert2=="00000000":
-                                                            dot_file3=dot_file3+"00001000"
+                                    elif count2==31 or dot_insert2=="00000":
+                                                            dot_file3=dot_file3+"00001"
                                                             count2=0
 
                                     else:
                                             dot_file=dot_file+dot_file2+dot_insert
+                                    if dot_insert=="00000":
+                                                            dot_file3=dot_file3+"00001"    
                                                             
                                     dot_file1=""
                                     dot_file2=""
                                     dot_file3=""
+                                    dot_insert=""
                                     count=0
                                     if compress_or_not_compress==1:
                                     	
