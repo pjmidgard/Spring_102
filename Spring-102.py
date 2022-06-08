@@ -293,8 +293,8 @@ class compression:
                                     if count>=5:
                                         dot_file=dot_file+dot_file3+dot_file1+dot_insert
 
-                                    if count2==31 or dot_insert2=="00000":
-                                                            dot_file3=dot_file3+"00001"
+                                    if count2==31 or dot_insert2=="00000000":
+                                                            dot_file3=dot_file3+"00001000"
                                                             count2=0
 
                                     else:
