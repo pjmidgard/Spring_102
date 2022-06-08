@@ -325,7 +325,7 @@ class compression:
                                     
                                     lenfS=len(Equal_info_between_of_the_cirlce_of_the_file_17)
                                     #print(lenfS)
-                                    if Circle_times2==0:
+                                    if lenfS>=lenf6:
                                             Deep3=lenfS
                                     
                                 
@@ -383,7 +383,7 @@ class compression:
 
                                     if   lenfS<=Deep3 or compress_or_not_compress==2:
                                             lenf=len(Equal_info_between_of_the_cirlce_of_the_file_17)                                           
-                                            Equal_info_between_of_the_cirlce_of_the_file_17=add_bits+Equal_info_between_of_the_cirlce_of_the_file_17
+                                            Equal_info_between_of_the_cirlce_of_the_file_17=add_bits9+Equal_info_between_of_the_cirlce_of_the_file1+add_bits+Equal_info_between_of_the_cirlce_of_the_file_17
 
                                     if   lenfS<=Deep3 or compress_or_not_compress==2:
                                                 
