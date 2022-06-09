@@ -225,7 +225,7 @@ class compression:
                  
                                     
 
-                                    if Circle_times2>=(2**48)-1:
+                                    if Circle_times2>=(2**8)-1:
                                             compress_or_not_compress=2
                                             
                                     
@@ -239,8 +239,12 @@ class compression:
                                     dot_file1=""
                                     dot_file2=""
                                     dot_file3=""
+                                    last_bit=""
                                     count=0
                                     count2=0
+                                    count3=0
+                                    count4=0
+                                    count5=0
 
                                     while block<dot_read_long:
                                             dot_insert=dot_read[block:block+8]
@@ -249,7 +253,7 @@ class compression:
                                             
                                            
                                             
-                                            if dot_number<30 and dot_insert2!="00000":
+                                            if dot_number<32 and count5==0:
                                                     dot_number1=dot_number+2
                                                     dot_save=bin(dot_number1)[2:]
                                                     
@@ -266,40 +270,42 @@ class compression:
                                                     count=count+1
                                                 
                                                     dot_file1=dot_file1+add_bits8+dot_save
-                                                    dot_file2=dot_file2+add_bits8+dot_save
+                                                    dot_file2=dot_file2+dot_insert
                                                     count2=0
                                                     dot_insert=""
+                                                    count4=count4+1
                                                     
 
-                                            if count==5:
-                                                            dot_file3=dot_file3+"00000"
-                                            elif dot_number>29:
-                                                count2=count2+1
-                                                   
-
-                                                if count2==31 or dot_insert2=="00000":
-                                                            dot_file3=dot_file3+"00001"
-                                                elif count>5:
-                                                            dot_file=dot_file+dot_file3+dot_file1+dot_insert2                    
-                                     
-                                                elif count==5:
-                                                            dot_file=dot_file+dot_file3+dot_file1+dot_insert 
-                                                else:
-                                                            dot_file=dot_file
+                    
                                                                  
                                                 
 
                                             else:
-                                                            dot_file=dot_file+dot_file2+dot_insert
+                
                                                                         
  
-                                            if dot_insert=="00000":
-                                                            dot_file3=dot_file3+"00001"                                                           
+                                             if count>2:
+                                                            last_bit=len(dot_insert2)
+                                                            
+                                                            dot_file=dot_file+dot_file3+dot_file1+dot_insert2[:last_bit-8]+dot_insert1
+                                                            
+                                             elif count==2:
+                                                                                                                                                         dot_file=dot_file+dot_file3+dot_file1+dot_insert2[:last_bit-8]+dot_insert1
+                                                                                                                                                         count5=1
+                                                                                                                                                         count3=1
+                                                                                                                                                                      
+                                             elif count==1:
+                                                            count5=1
+                                                            
+                                                            dot_file=dot_file+dot_file3+dot_file1+dot_insert1
+                                                            count3=2
+                                                                                                                                                    
                                             dot_file1=""
                                             dot_file2=""
                                             dot_file3=""
-                                            dot_insert2=""
-                                            dot_insert=""
+                                            dot_file=dot_file+dot_file2+dot_insert       
+                                         
+                                           
                                                    
                                             count=0
                                                     
@@ -307,24 +313,17 @@ class compression:
 
                                   
 
-                                    
-                                    if count2==31 or dot_insert2=="00000":
-                                                            dot_file3=dot_file3+"00001"
-                                    elif count>5:
-                                        dot_file=dot_file+dot_file3+dot_file1+dot_insert2                       
-                                     
-                                    elif count==5:
-                                        dot_file=dot_file+dot_file3+dot_file1+dot_insert 
-                                    else:
-                                            dot_file=dot_file+dot_file2+dot_insert
-                                    if dot_insert=="00000":
-                                                            dot_file3=dot_file3+"00001"    
-                                                            
-                                    dot_file1=""
-                                    dot_file2=""
-                                    dot_file3=""
-                                    dot_insert=""
-                                    count=0
+                                    if count4==0:
+                                                                               dot_file="00"+dot_file
+                                    elif count3==1:
+                                                                               dot_file="01"+dot_file
+                                                                               
+                                    elif count3==2:
+                                                                               dot_file="10"+dot_file
+                                    elif count!=0 and      count3==2:
+                                         dot_file="11"+dot_file
+                                         
+
                                     if compress_or_not_compress==1:
                                     	
                                     	    Equal_info_between_of_the_cirlce_of_the_file_17=dot_file
@@ -365,10 +364,10 @@ class compression:
                                             lenf=len(Equal_info_between_of_the_cirlce_of_the_file1)
 
                                             add_bits9=""
-                                            count_bits=48-lenf%48
+                                            count_bits=8-lenf%8
                                             z=0
                                             if count_bits!=0:
-                                                if count_bits!=48:
+                                                if count_bits!=8:
                                                         while z<count_bits:
                                                          	add_bits9="0"+add_bits9
                                                          	z=z+1     
