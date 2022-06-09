@@ -239,7 +239,8 @@ class compression:
                                     dot_file1=""
                                     dot_file2=""
                                     dot_file3=""
-                                    last_bit=""
+                                    last_bit=0
+                                    
                                     count=0
                                     count2=0
                                     count3=0
@@ -281,17 +282,17 @@ class compression:
                                                 
 
                                             else:
-                                                
+                                             last_bit2=0
                                              last_bit =len(dot_file2)
-                                                                        
+                                             last_bit2 =len(dot_file1)                           
  
                                              if count>2:
-                                                            dot_file=dot_file+dot_file2[:last_bit-8]+"1"+dot_file1
+                                                            dot_file=dot_file+dot_file2[:last_bit-8]+"1"+dot_file1[last_bit2-5:]
                                                             
                                                             
                                                             
                                              elif count==2:
-                                                                                                                                                         dot_file=dot_file+dot_file2[:last_bit-8]+"1"+dot_file1
+                                                                                                                                                         dot_file=dot_file+dot_file2[:last_bit-8]+"1"+dot_file1[last_bit2-5:]
                                                                                                                                                          count5=1
                                                                                                                                                          count3=1
                                                                                                                                                                       
