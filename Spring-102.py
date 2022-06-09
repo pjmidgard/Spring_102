@@ -225,7 +225,7 @@ class compression:
                  
                                     
 
-                                    if Circle_times2>=(2**48)-1:
+                                    if Circle_times2>=(2**8)-1:
                                             compress_or_not_compress=2
                                             
                                     
@@ -269,10 +269,10 @@ class compression:
                                                                         z=z+1
                                                     count=count+1
                                                 
-                                                    dot_file1=dot_file1+add_bits8+dot_save
+                                                    dot_file1=add_bits8+dot_save
                                                     dot_file2=dot_file2+dot_insert
                                                     count2=0
-                                                    dot_insert=""
+                                                    
                                                     count4=count4+1
                                                     
 
@@ -281,29 +281,30 @@ class compression:
                                                 
 
                                             else:
-                
+                                                
+                                             last_bit =len(dot_file2)
                                                                         
  
                                              if count>2:
-                                                            last_bit=len(dot_insert2)
+                                                            dot_file=dot_file+dot_file2[:last_bit-8]+"1"+dot_file1
                                                             
-                                                            dot_file=dot_file+dot_file3+dot_file1+dot_insert2[:last_bit-8]+dot_insert1
+                                                            
                                                             
                                              elif count==2:
-                                                                                                                                                         dot_file=dot_file+dot_file3+dot_file1+dot_insert2[:last_bit-8]+dot_insert1
+                                                                                                                                                         dot_file=dot_file+dot_file2[:last_bit-8]+"1"+dot_file1
                                                                                                                                                          count5=1
                                                                                                                                                          count3=1
                                                                                                                                                                       
                                              elif count==1:
                                                             count5=1
                                                             
-                                                            dot_file=dot_file+dot_file3+dot_file1+dot_insert1
+                                                            dot_file=dot_file+dot_insert2
                                                             count3=2
                                                                                                                                                     
                                             dot_file1=""
                                             dot_file2=""
                                             dot_file3=""
-                                            dot_file=dot_file+dot_file2+dot_insert       
+                                            dot_file=dot_file+dot_insert       
                                          
                                            
                                                    
@@ -334,8 +335,8 @@ class compression:
                                     
                                     lenfS=len(Equal_info_between_of_the_cirlce_of_the_file_17)
                                     #print(lenfS)
-                                    if lenfS>=lenf6:
-                                            Deep3=lenfS
+                                    
+                                    Deep3=lenfS
                                     
                                 
                                             
@@ -364,10 +365,10 @@ class compression:
                                             lenf=len(Equal_info_between_of_the_cirlce_of_the_file1)
 
                                             add_bits9=""
-                                            count_bits=48-lenf%48
+                                            count_bits=8-lenf%8
                                             z=0
                                             if count_bits!=0:
-                                                if count_bits!=48:
+                                                if count_bits!=8:
                                                         while z<count_bits:
                                                          	add_bits9="0"+add_bits9
                                                          	z=z+1     
@@ -392,7 +393,7 @@ class compression:
 
                                     if   lenfS<=Deep3 or compress_or_not_compress==2:
                                             lenf=len(Equal_info_between_of_the_cirlce_of_the_file_17)                                           
-                                            Equal_info_between_of_the_cirlce_of_the_file_17=add_bits9+Equal_info_between_of_the_cirlce_of_the_file1+add_bits+Equal_info_between_of_the_cirlce_of_the_file_17
+                                            Equal_info_between_of_the_cirlce_of_the_file1+add_bits+Equal_info_between_of_the_cirlce_of_the_file_17
 
                                     if   lenfS<=Deep3 or compress_or_not_compress==2:
                                                 
