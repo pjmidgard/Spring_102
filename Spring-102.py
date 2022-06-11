@@ -98,7 +98,7 @@ class compression:
                     if nameas[nac-4:nac]==".mp4":
                     	Portal=8
 
-                    nameas=name+".Spring-102"
+                    nameas=name+".bin"
                 
                     nac=len(nameas)
                     
@@ -141,11 +141,14 @@ class compression:
 
                        # Read the whole file at once
                         data = binary_file.read()
+                      
                  
                        
 
                   
                         s=str(data)
+                        
+                     
                        
                         lenf1=len(data)
                         lenf5=len(data)
@@ -488,6 +491,14 @@ class compression:
                                     qqwslenf="%0"+qqwslenf+"x"
                              
                                     jl=binascii.unhexlify(qqwslenf % n)
+                                
+                                  
+                                       
+                                    import brotlicffi
+                                  
+                                    
+                                    jl=brotlicffi.compress(jl)
+                                
                                     
                                     
                                     
@@ -521,7 +532,7 @@ class compression:
                     blockw1=4
                     nameas=name
                     nac=len(nameas)
-                    nameas=name[:nac-11]
+                    nameas=name[:nac-4]
                     nac=len(nameas)
             
                     
@@ -567,7 +578,8 @@ class compression:
                        # Read the whole file at once
                         data = binary_file.read()
                         
-                        	
+                        import brotlicffi
+                        data=brotlicffi.decompress(data)	
 
                         s=str(data)
                        
@@ -912,9 +924,10 @@ class compression:
                                     qqwslenf="%0"+qqwslenf+"x"
                              
                                     jl=binascii.unhexlify(qqwslenf % n)
+                                 
                                
                                     sssssw=len(jl) 
-                                    sssssw=len(jl)
+                                  
                                    
 
                                     qqqwz=qqqwz+1
